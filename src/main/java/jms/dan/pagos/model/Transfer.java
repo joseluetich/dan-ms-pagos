@@ -1,4 +1,37 @@
 package jms.dan.pagos.model;
 
-public class Transfer {
+import javax.persistence.Entity;
+
+@Entity
+public class Transfer extends PaymentMethod {
+    private String originCBU;
+    private String destinationCBU;
+    private Long transferCode;
+
+    public Transfer() {
+    }
+
+    public String getOriginCBU() {
+        return originCBU;
+    }
+
+    public void setOriginCBU(String originCBU) {
+        this.originCBU = originCBU;
+    }
+
+    public String getDestinationCBU() {
+        return destinationCBU;
+    }
+
+    public void setDestinationCBU(String destinationCBU) {
+        this.destinationCBU = destinationCBU;
+    }
+
+    public Long getTransferCode() {
+        return transferCode;
+    }
+
+    public void setTransferCode(Long transferCode) {
+        this.transferCode = transferCode;
+    }
 }
