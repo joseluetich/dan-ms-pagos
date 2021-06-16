@@ -1,12 +1,22 @@
 package jms.dan.pagos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import javax.persistence.*;
 
 @Entity
-public class PaymentMethod {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Cash.class, name = "cash"),
+        @JsonSubTypes.Type(value = BankCheck.class, name = "check"),
+        @JsonSubTypes.Type(value = BankTransfer.class, name = "bankTransfer")
+})
+public abstract class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

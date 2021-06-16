@@ -4,12 +4,12 @@ import javax.persistence.Entity;
 import java.time.Instant;
 
 @Entity
-public class Cheque extends PaymentMethod {
+public class BankCheck extends PaymentMethod {
     private String bank;
     private Instant paymentDate;
-    private Integer chequeNumber;
+    private Integer checkNumber;
 
-    public Cheque() {
+    public BankCheck() {
     }
 
     public String getBank() {
@@ -28,11 +28,11 @@ public class Cheque extends PaymentMethod {
         this.paymentDate = paymentDate;
     }
 
-    public Integer getChequeNumber() {
-        return chequeNumber;
+    public Integer getCheckNumber() {
+        return checkNumber;
     }
 
-    public void setChequeNumber(Integer chequeNumber) {
-        this.chequeNumber = chequeNumber;
+    public void setCheckNumber(Integer checkNumber) {
+        this.checkNumber = checkNumber;
     }
 }

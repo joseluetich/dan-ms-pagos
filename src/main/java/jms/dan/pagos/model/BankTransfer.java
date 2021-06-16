@@ -3,12 +3,12 @@ package jms.dan.pagos.model;
 import javax.persistence.Entity;
 
 @Entity
-public class Transfer extends PaymentMethod {
+public class BankTransfer extends PaymentMethod {
     private String originCBU;
     private String destinationCBU;
     private Long transferCode;
 
-    public Transfer() {
+    public BankTransfer() {
     }
 
     public String getOriginCBU() {

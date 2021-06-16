@@ -11,7 +11,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Instant paymentDate;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private PaymentMethod paymentMethod;
     @Transient
     private ClientDTO client;
