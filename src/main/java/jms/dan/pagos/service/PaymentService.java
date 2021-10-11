@@ -27,7 +27,9 @@ public class PaymentService implements IPaymentService {
     public void createPayment(Payment newPayment) {
         // TODO habria que chequear que el type que se recibe sea correcto
 
-        WebClient webClient = WebClient.create("http://localhost:8080/api-users/clients/" + newPayment.getClientId());
+        paymentRepository.save(newPayment);
+
+        /* WebClient webClient = WebClient.create("http://localhost:8080/api-users/clients/" + newPayment.getClientId());
         try {
             ResponseEntity<ClientDTO> response = webClient.get()
                     .accept(MediaType.APPLICATION_JSON)
@@ -41,7 +43,7 @@ public class PaymentService implements IPaymentService {
             }
         } catch (WebClientException e) {
             throw new ApiException(HttpStatus.INTERNAL_SERVER_ERROR.toString(), "An error has occurred", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        }
+        } */
     }
 
     @Override
